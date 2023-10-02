@@ -2,7 +2,6 @@ package com.example.roomdatabase.repository
 
 import androidx.lifecycle.ViewModel
 import com.example.roomdatabase.db.entity.NoteEntity
-import com.example.roomdatabase.repository.NoteRepository
 
 class NoteViewModel(
     private  val repository: NoteRepository

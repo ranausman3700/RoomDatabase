@@ -1,6 +1,7 @@
 package com.example.roomdatabase
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -46,7 +47,6 @@ class InsertActivity : AppCompatActivity() {
 
         btnInsert.setOnClickListener(){
             insertData()
-
         }
     }
 
@@ -58,14 +58,13 @@ class InsertActivity : AppCompatActivity() {
         if (title.isNotEmpty() && desc.isNotEmpty() && priority.isNotEmpty()){
             CoroutineScope(Dispatchers.Main).launch {
                 viewModel.insertNote(note).also {
-
                     tvTitle.text = ""
                     tvPriority.text = ""
                     tvDescription.text = ""
                     Toast.makeText(applicationContext, "Data inserted successfully", Toast.LENGTH_SHORT).show()
-
                 }
-
+                val intent = Intent(applicationContext, ReadActivity::class.java)
+                startActivity(intent)
             }
         }else{
             Log.e(TAG, "insertData: Your data is not Updated")

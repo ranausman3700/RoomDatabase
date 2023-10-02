@@ -17,5 +17,5 @@ class NoteRepository(
 
     suspend fun clearNote() = noteDatabase.getNoteDao().clearNote()
 
-    fun getAllNotes(): LiveData<List<NoteEntity>> = noteDatabase.getNoteDao().getAllNotes()
+     fun getAllNotes(): LiveData<List<NoteEntity>> = noteDatabase.getNoteDao().getAllNotes()
 }
